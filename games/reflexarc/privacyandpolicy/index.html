@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflex Arc // Privacy & Terms Terminal</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Orbitron:wght@400;700&family=Space+Grotesk:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #06060c;
+            --panel-bg: rgba(12, 12, 24, 0.7);
+            --accent-cyan: #00f0ff;
+            --accent-neon: #39ff14;
+            --text-main: #e2e8f0;
+            --text-muted: #64748b;
+            --border-glow: rgba(0, 240, 255, 0.2);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(at 10% 10%, rgba(0, 240, 255, 0.08) 0px, transparent 40%),
+                radial-gradient(at 90% 90%, rgba(57, 255, 20, 0.05) 0px, transparent 40%);
+            color: var(--text-main);
+            font-family: 'Space Grotesk', sans-serif;
+            min-height: 100vh;
+            padding: 3rem 1rem;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        /* Tech Arcade Header */
+        header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+            border-bottom: 1px dashed var(--border-glow);
+            padding-bottom: 2rem;
+        }
+
+        header::before {
+            content: "● ARCADE REACTION NETWORK SYSTEM ●";
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent-neon);
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            display: block;
+            margin-bottom: 0.8rem;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.8rem;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+        }
+
+        .meta-info {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        .meta-info span {
+            color: var(--accent-cyan);
+        }
+
+        /* Cyberpunk Section Cards */
+        .section-card {
+            background: var(--panel-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-left: 4px solid var(--accent-cyan);
+            padding: 2.2rem;
+            margin-bottom: 2rem;
+            border-radius: 0 12px 12px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .section-card:hover {
+            border-left-color: var(--accent-neon);
+            box-shadow: 0 10px 30px rgba(57, 255, 20, 0.08);
+            transform: translateX(4px);
+        }
+
+        h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: #fff;
+            font-size: 1.25rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h2::before {
+            content: "[//]";
+            color: var(--accent-cyan);
+            font-size: 0.9rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #cbd5e1;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            position: relative;
+            padding-left: 1.8rem;
+            margin-bottom: 0.8rem;
+            color: #94a3b8;
+        }
+
+        li::before {
+            content: "»";
+            position: absolute;
+            left: 0.2rem;
+            color: var(--accent-neon);
+            font-weight: bold;
+            font-size: 1.1rem;
+            top: -2px;
+        }
+
+        /* Highlighting elements */
+        .highlight-cyan {
+            color: var(--accent-cyan);
+            font-weight: 500;
+        }
+
+        .highlight-neon {
+            color: var(--accent-neon);
+            font-weight: 500;
+        }
+
+        /* Contact Box styling */
+        .contact-node {
+            background: rgba(0, 240, 255, 0.03);
+            border: 1px dashed rgba(0, 240, 255, 0.2);
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .email-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            margin-top: 0.5rem;
+            word-break: break-all;
+        }
+
+        /* Tech Terminal Footer */
+        footer {
+            text-align: center;
+            margin-top: 4.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--accent-cyan), var(--accent-neon));
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Reflex Arc</h1>
+            <div class="meta-info">PRIVACY POLICY & TERMS OF SERVICE // EFFECTIVE: <span>AUGUST 12, 2026</span></div>
+        </header>
+
+        <main>
+            <!-- Section 1: Intro -->
+            <div class="section-card">
+                <h2>1. Introduction</h2>
+                <p>Welcome to <span class="highlight-cyan">Reflex Arc</span>, an entertainment-focused reflex booster game. This application is entirely designed for casual gaming, fun, and skill-building purposes. By downloading and playing this game, you agree to the terms and privacy rules outlined in this document.</p>
+            </div>
+
+            <!-- Section 2: Privacy -->
+            <div class="section-card">
+                <h2>2. Information Collection & Privacy</h2>
+                <p>We completely respect your privacy. Our data protocol is transparent and clean:</p>
+                <ul>
+                    <li><span class="highlight-neon">No Personal Information:</span> We do not collect, request, or store any of your personal identification data (such as real name, phone number, physical address, or email address).</li>
+                    <li><span class="highlight-cyan">Cloud Leaderboard:</span> For entertainment purposes, the game features a Cloud Leaderboard that displays high scores. Only non-personal game data (such as your self-chosen in-game nickname and gameplay score) is synced to the cloud. No personal user data is linked to this process.</li>
+                </ul>
+            </div>
+
+            <!-- Section 3: Content Creation -->
+            <div class="section-card">
+                <h2>3. Content Creation & Video Guidelines</h2>
+                <p>We welcome and encourage players, content creators, and streamers to share <span class="highlight-cyan">Reflex Arc</span> gameplay videos and streams on YouTube, Twitch, or any social media platform.</p>
+                <ul>
+                    <li><span class="highlight-neon">No Copyright Strikes:</span> You are entirely free to create videos. We will not issue any copyright strikes against you for sharing gameplay or review videos.</li>
+                    <li><span class="highlight-cyan">Prohibited Content:</span> Creators must not use game footage to produce offensive or illegal content, spread hate speech, or generate any form of harmful material. All content should focus strictly on the game, gameplay reviews, and positive entertainment.</li>
+                </ul>
+            </div>
+
+            <!-- Section 4: Disclaimer -->
+            <div class="section-card">
+                <h2>4. General Disclaimer</h2>
+                <p><span class="highlight-cyan">Reflex Arc</span> is intended strictly for entertainment and leaderboard competition. While it helps you practice your reaction speed, it remains solely a game and should not be used as a serious or medical tool under any circumstances.</p>
+            </div>
+
+            <!-- Section 5: Contact -->
+            <div class="section-card">
+                <h2>5. Contact Us</h2>
+                <p>If you have any questions, suggestions, or feedback regarding this game, the privacy policy, or terms, you can contact us at this secure node:</p>
+                <div class="contact-node">
+                    <p style="margin: 0; color: var(--text-muted); font-size: 0.85rem;">SECURE EMAIL TERMINAL</p>
+                    <div class="email-text highlight-neon">huntersupremesupports@gmail.com</div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>// SYSTEM CORE RESPONSIVE // ALL PROTOCOLS TERMINATED //</p>
+        </footer>
+    </div>
+
+</body>
+</html>
